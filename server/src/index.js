@@ -13,11 +13,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // routes
-app.use("/api/v1/products", require("./routes/product.routes"));
+app.use("/api/v1/posts", require("./routes/post.routes"));
+app.use("/api/v1/users", require("./routes/user.routes"));
 
 app.get("/", function (_, res) {
   const version = require("../package.json").version;
-  return res.status(200).json({ message: `Hello from MEVN Store v${version} 😊` });
+  return res.status(200).json({ message: `Hello from MEVN Blog v${version} 😊` });
 });
 
 app.use(function (req, res, next) {

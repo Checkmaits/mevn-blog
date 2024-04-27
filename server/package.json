@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "0.0.1",
-  "description": "The server-side component of the MEVN Store app",
+  "description": "The server-side component of the MEVN Blog app",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
