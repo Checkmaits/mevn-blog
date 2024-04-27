@@ -1,10 +1,8 @@
-<template>
-  <router-view />
-</template>
+<template></template>
 
 <script>
 export default {
-  name: "App",
+  name: "ProductsView",
 };
 </script>
 

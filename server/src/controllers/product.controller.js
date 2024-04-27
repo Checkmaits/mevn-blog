@@ -57,7 +57,16 @@ async function createProduct(req, res, next) {
   }
 
   try {
-    // TODO: sadfhjkasdhfkljasdfhjklasdhfkljasdhfjklasdhfkjlasdhfjklasdfhjklsd
+    const doesProductExist = await Product.findOne({ partNumber });
+    if (doesProductExist) {
+      const error = new Error("A product with that Part Number already exists ❌");
+      error.status = 409;
+      return next(error);
+    }
+
+    const product = new Product({ ...req.body });
+    await product.save();
+    return res.status(201).json({ message: `Product created successfully (ID: ${product.id}) ✅` });
   } catch (error) {
     console.error(error);
     return next(new Error()); // just throw an internal server error
